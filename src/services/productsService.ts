@@ -1,5 +1,4 @@
-import IProducts from '../interfaces/productsInterface';
-import IServices from '../interfaces/serviceInterface';
+import { IProducts, IServices } from '../interfaces';
 import ProductsModel from '../models/productsModel';
 import statusCodes from '../utils/statusCode';
 
