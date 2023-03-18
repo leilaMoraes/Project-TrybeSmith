@@ -1,5 +1,7 @@
 import IProducts from '../interfaces/productsInterface';
+import IServices from '../interfaces/serviceInterface';
 import ProductsModel from '../models/productsModel';
+import statusCodes from '../utils/statusCode';
 
 export default class ProductsService {
   model: ProductsModel;
@@ -8,8 +10,8 @@ export default class ProductsService {
     this.model = new ProductsModel();
   }
 
-  async create(product: IProducts): Promise<IProducts> {
+  async create(product: IProducts): Promise<IServices> {
     const newProduct = await this.model.create(product);
-    return newProduct;
+    return { type: statusCodes.CREATED, message: newProduct };
   }
 }
