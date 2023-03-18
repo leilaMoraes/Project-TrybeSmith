@@ -10,10 +10,13 @@ export interface IServices {
   message: string | unknown;
 }
 
-export interface IUsers {
-  id?: number;
+export interface ILogin {
   username: string;
+  password: string;
+}
+
+export interface IUsers extends ILogin {
+  id?: number;
   vocation: string;
   level: number;
-  password: string;
 }
