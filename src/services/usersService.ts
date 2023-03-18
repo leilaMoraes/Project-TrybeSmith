@@ -26,6 +26,7 @@ export default class ProductsService {
   async create(user: IUsers): Promise<IServices> {
     const newUser = await this.model.create(user);
     const { username, password } = newUser;
-    return { type: statusCodes.CREATED, message: this.generateToken({ username, password }) };
+    const token = { token: this.generateToken({ username, password }) }; 
+    return { type: statusCodes.CREATED, message: token };
   }
 }
