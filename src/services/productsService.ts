@@ -14,4 +14,9 @@ export default class ProductsService {
     const newProduct = await this.model.create(product);
     return { type: statusCodes.CREATED, message: newProduct };
   }
+
+  async getAll(): Promise<IServices> {
+    const products = await this.model.getAll();
+    return { type: statusCodes.OK, message: products };
+  }
 }
