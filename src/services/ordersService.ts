@@ -1,5 +1,5 @@
 import { IServices } from '../interfaces';
-import OrdersModel from '../models/productsModel';
+import OrdersModel from '../models/ordersModel';
 import statusCodes from '../utils/statusCode';
 
 export default class OrdersService {
