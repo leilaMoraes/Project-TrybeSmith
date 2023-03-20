@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import OrdersService from '../services/ordersService';
 
-export default class ProductsController {
+export default class OrdersController {
   service: OrdersService;
 
   constructor() {
