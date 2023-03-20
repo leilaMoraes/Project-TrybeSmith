@@ -20,3 +20,9 @@ export interface IUsers extends ILogin {
   vocation: string;
   level: number;
 }
+
+export interface IOrders {
+  id: number;
+  userId: number;
+  productsIds: number[];
+}
