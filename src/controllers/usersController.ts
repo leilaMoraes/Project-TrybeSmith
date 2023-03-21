@@ -12,4 +12,9 @@ export default class ProductsController {
     const { type, message } = await this.service.create(req.body);
     return res.status(type).json(message);
   };
+
+  getLogin = async (req: Request, res: Response) => {
+    const { type, message } = await this.service.getLogin(req.body);
+    return res.status(type).json(message);
+  };
 }

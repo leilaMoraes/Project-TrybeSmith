@@ -29,4 +29,20 @@ export default class ProductsService {
     const token = { token: this.generateToken({ username, password }) }; 
     return { type: statusCodes.CREATED, message: token };
   }
+
+  async getLogin(user: ILogin): Promise<IServices> {
+    const { username, password } = user;
+    const token = { token: this.generateToken({ username, password }) };
+    const noUsername = { message: '"username" is required' };
+    const noPassword = { message: '"password" is required' };
+    if (!username) return { type: statusCodes.BAD_REQUEST, message: noUsername };
+    if (!password) return { type: statusCodes.BAD_REQUEST, message: noPassword };
+    const login = await this.model.getLogin(user);
+    console.log(login);
+    const invalid = { message: 'Username or password invalid' };
+    if (login === undefined || login.password !== password) {
+      return { type: statusCodes.UNAUTHORIZED, message: invalid };
+    }
+    return { type: statusCodes.OK, message: token };
+  }
 }
